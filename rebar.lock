@@ -1,0 +1,14 @@
+{"1.1.0",
+[{<<"cowboy">>,{pkg,<<"cowboy">>,<<"2.2.2">>},0},
+ {<<"cowlib">>,{pkg,<<"cowlib">>,<<"2.1.0">>},1},
+ {<<"quickrand">>,{pkg,<<"quickrand">>,<<"1.7.3">>},1},
+ {<<"ranch">>,{pkg,<<"ranch">>,<<"1.4.0">>},1},
+ {<<"uuid">>,{pkg,<<"uuid_erl">>,<<"1.7.3">>},0}]}.
+[
+{pkg_hash,[
+ {<<"cowboy">>, <<"6CDE634DA1DA8B1D17DD2B20F5F6F91AB8AC7FA1B5106D13DAD63C905AB76004">>},
+ {<<"cowlib">>, <<"F73658B93DD043AF40400C3E4FD997068EBD0C617F8C8F4CD003A1A78EBF94F5">>},
+ {<<"quickrand">>, <<"0E4FB48FAC904FE0C6E21D7E8C31A288A0700E1E81A35B38B649FC119079755D">>},
+ {<<"ranch">>, <<"10272F95DA79340FA7E8774BA7930B901713D272905D0012B06CA6D994F8826B">>},
+ {<<"uuid">>, <<"C5DF97D1A3D626235C2415E74053C47B2138BB863C5CD802AB5CAECB8ECC019F">>}]}
+].
