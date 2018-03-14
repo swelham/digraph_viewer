@@ -7,9 +7,10 @@ register(G) ->
 
 graph_data() ->
   Graphs = call_server({list}),
-  lists:map(fun({Uuid, _}) -> 
+  lists:map(fun({Uuid, G}) -> 
     Id = uuid:uuid_to_string(Uuid, binary_standard),
-    {[{id, Id}]}
+    Info = digraph:info(G),
+    {[{id, Id} | Info]}
   end, Graphs).
 
 call_server(Request) ->

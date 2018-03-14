@@ -4,21 +4,26 @@
     <meta charset="utf-8">
     <title>Digraph Viewer</title>
     <link href="/css/tachyons.min.css" rel="stylesheet" />
+    <link href="/css/app.css" rel="stylesheet" />
   </head>
   <body>
-    <div class="mw9 center ph3-ns">
-      <div class="cf ph2-ns">
-        <div class="fl w-100 w-30-ns pa2">
-          <article>
-            <h1 class="f4 bold center mw6">Digraphs</h1>
-            <ul id="graph_list" class="list pl0 ml0 center mw6 ba b--light-silver br2">
-            </ul>
-          </article>
-        </div>
-        <div class="fl w-100 w-70-ns pa2">
-          <h1 class="f4 bold center mw6">&nbsp;</h1>
-          <svg width="960" height="300"></svg>
-        </div>
+    <div class="fl w-20 pa2">
+      <h1 class="f4 bold center mw6">Digraphs</h1>
+      <ul id="graph_list" class="list pl0 ml0 mt0 center mw6 ba b--light-silver bb-0">
+        <li data-template="graph-list-item" class="pa3 bb b--light-silver">
+          <span data-name></span>
+          <div class="cf mt2">
+            <div data-protection class="fl w-30 light-silver"></div>
+            <div data-cyclicity class="fl w-30 light-silver"></div>
+            <div data-memory class="fl w-40 light-silver"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="fl w-80 pa2">
+      <h1 class="f4 bold center mw6">&nbsp;</h1>
+      <div class="ba b--light-silver">
+        <svg width="960" height="300"></svg>
       </div>
     </div>
   </body>
