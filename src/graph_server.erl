@@ -9,11 +9,10 @@ start_server() ->
   
   Dispatch = cowboy_router:compile([
       {'_', [
-        % {"/", cowboy_static, {priv_file, test_harness, "index.html"}},
-        % {"/js/[...]", cowboy_static, {priv_dir, test_harness, "js"}},
-        % {"/css/[...]", cowboy_static, {priv_dir, test_harness, "css"}},
+        {"/", cowboy_static, {priv_file, digraph_viewer, "index.html"}},
+        {"/js/[...]", cowboy_static, {priv_dir, digraph_viewer, "js"}},
+        {"/css/[...]", cowboy_static, {priv_dir, digraph_viewer, "css"}},
         {"/data", graph_data_handler, []}
-        % {"/graph/[...]", graph_handler, []}
       ]}
   ]),
   {ok, _} = cowboy:start_clear(my_http_listener,

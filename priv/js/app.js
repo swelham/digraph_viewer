@@ -15,8 +15,6 @@
           infoEl.classList.add('b--light-silver');
           infoEl.innerText = info.id;
           list.appendChild(infoEl);
-          
-          renderGraph(info.id);
         });
       });
   });
