@@ -22,7 +22,7 @@ handle_call(_Request, _From, State) ->
   {reply, [], State}.
 
 handle_cast({register, G}, State) ->
-  Uuid = uuid:new(self()),
+  Uuid = uuid:get_v4_urandom(),
   NewState = [{Uuid, G} | State],
   {noreply, NewState};
 handle_cast(_Request, State) ->
