@@ -1,4 +1,22 @@
 (function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    fetch('/data')
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        var listEl = document.getElementById('graph_list');
+        
+        if (data.length > 0) {
+          data.forEach(function(info) {
+            buildGraphListItem(listEl, info);
+          });
+          
+          renderGraph(data[0]);
+        }
+      });
+  });
+  
   function createElement(templateName, id) {
     var el = document
       .querySelector('[data-template="' + templateName + '"]')
@@ -26,17 +44,55 @@
     memoryEl.innerText = data.memory + ' words';
   }
   
-  document.addEventListener('DOMContentLoaded', function() {
-    fetch('/data')
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(data) {
-        var listEl = document.getElementById('graph_list');
-        
-        data.forEach(function(info) {
-          buildGraphListItem(listEl, info);
-        });
-      });
-  });
+  function renderGraph(graphData) {
+    var svg = d3.select("svg"),
+      width = +svg.attr("width"),
+      height = +svg.attr("height");
+    
+    var link_force =  d3.forceLink(graphData.links)
+      .distance(100)
+      .id(function(d) { return d.id; });
+
+    d3.forceSimulation()
+      .nodes(graphData.nodes)
+      .force("center_force", d3.forceCenter(width / 2, height / 2))
+      .force("charge_force", d3.forceManyBody())
+      .force("links",link_force)
+      .on("tick", tickActions);
+
+    var link = svg.append("g")
+      .attr("class", "links")
+      .selectAll("line")
+      .data(graphData.links)
+      .enter()
+      .append("line")
+      .attr("stroke-width", 2);
+      
+    var node = svg.selectAll(".node")
+      .data(graphData.nodes)
+      .enter()
+      .append('g')
+      .classed('node', true);
+      
+    node.append("circle")
+      .attr("r", 25)
+      .style("fill", '#408BC9')
+      .append("title")
+      .text(function(d) { return d.id; });
+
+    node.append("text")
+      .attr('fill', '#fff')
+      .attr('text-anchor', 'middle')
+      .text(function(d) { return d.id; });
+    
+    function tickActions() {
+      node.attr("transform", function(d) { return 'translate(' + [d.x, d.y] + ')'; })
+
+      link
+        .attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+    }
+  }
 })();
