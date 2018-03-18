@@ -21,9 +21,9 @@ handle_call({list}, _From, State) ->
 handle_call(_Request, _From, State) ->
   {reply, [], State}.
 
-handle_cast({register, G}, State) ->
+handle_cast({register, G, Name}, State) ->
   Uuid = uuid:get_v4_urandom(),
-  NewState = [{Uuid, G} | State],
+  NewState = [{Uuid, G, Name} | State],
   {noreply, NewState};
 handle_cast(_Request, State) ->
   {noreply, State}.

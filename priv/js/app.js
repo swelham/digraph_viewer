@@ -38,7 +38,7 @@
     var cyclicityEl = document.querySelector(infoSelector + ' [data-cyclicity]');
     var memoryEl = document.querySelector(infoSelector + ' [data-memory]');
     
-    nameEl.innerText = data.id;
+    nameEl.innerText = data.name || data.id;
     proctectionEl.innerText = data.protection;
     cyclicityEl.innerText = data.cyclicity;
     memoryEl.innerText = data.memory + ' words';
