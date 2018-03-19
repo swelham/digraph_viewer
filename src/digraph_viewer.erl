@@ -14,7 +14,7 @@ graph_data() ->
     Info = digraph:info(G),
     Nodes = collect_nodes(G),
     Links = collect_links(G),
-    {[{id, Id}, {name, Name}] ++ Info ++ [{nodes, Nodes}, {links, Links}]}
+    {[{id, Id}, {name, Name}] ++ Info ++ [{vertices, Nodes}, {edges, Links}]}
   end, Graphs).
 
 call_server(Request) ->
