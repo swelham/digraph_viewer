@@ -29,10 +29,11 @@ collect_nodes(G) ->
 collect_links(G) ->
   Edges = digraph:edges(G),
   lists:map(fun(E) ->
-    {_, Source, Target, _} = digraph:edge(G, E),
+    {E, Source, Target, B} = digraph:edge(G, E),
+    Id = format_term(E),
     Src = format_term(Source),
     Trgt = format_term(Target),
-    {[{source, Src}, {target, Trgt}]}
+    {[{id, Id}, {source, Src}, {target, Trgt}]}
   end, Edges).
 
 do_register(G, Name) ->
