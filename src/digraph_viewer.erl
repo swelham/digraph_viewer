@@ -12,21 +12,21 @@ graph_data() ->
   lists:map(fun({Uuid, G, Name}) -> 
     Id = uuid:uuid_to_string(Uuid, binary_standard),
     Info = digraph:info(G),
-    Nodes = collect_nodes(G),
-    Links = collect_links(G),
-    {[{id, Id}, {name, Name}] ++ Info ++ [{vertices, Nodes}, {edges, Links}]}
+    Vertices = collect_vertices(G),
+    Edges = collect_edges(G),
+    {[{id, Id}, {name, Name}] ++ Info ++ [{vertices, Vertices}, {edges, Edges}]}
   end, Graphs).
 
 call_server(Request) ->
    gen_server:call(graph_tracker, Request).   
    
-collect_nodes(G) ->
-  Nodes = digraph:vertices(G),
+collect_vertices(G) ->
+  Vertices = digraph:vertices(G),
   lists:map(fun(Id) -> 
     IdStr = format_term(Id),
-    {[{id, IdStr}]} end, Nodes).
+    {[{id, IdStr}]} end, Vertices).
 
-collect_links(G) ->
+collect_edges(G) ->
   Edges = digraph:edges(G),
   lists:map(fun(E) ->
     {E, Source, Target, B} = digraph:edge(G, E),
