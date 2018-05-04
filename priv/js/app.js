@@ -1,4 +1,7 @@
 (function() {
+  var graphs = {};
+  var selectedGraph = null;
+  
   document.addEventListener('DOMContentLoaded', function() {
     fetch('/data')
       .then(function(response) {
@@ -10,6 +13,7 @@
         if (data.length > 0) {
           data.forEach(function(info) {
             buildGraphListItem(listEl, info);
+            graphs[info.id] = info;
           });
           
           renderGraph(data[0]);
@@ -22,14 +26,14 @@
       .querySelector('[data-template="' + templateName + '"]')
       .cloneNode(true);
     
-    el.setAttribute('id', 'id_' + id);
+    el.setAttribute('id', '_' + id);
     el.removeAttribute('data-template');
     return el;
   }
   
   function buildGraphListItem(list, data) {
     var infoEl = createElement('graph-list-item', data.id);
-    var infoSelector = '#id_' + data.id;
+    var infoSelector = '#_' + data.id;
     
     list.appendChild(infoEl);
     
@@ -42,6 +46,14 @@
     proctectionEl.innerText = data.protection;
     cyclicityEl.innerText = data.cyclicity;
     memoryEl.innerText = data.memory + ' words';
+    
+    infoEl.addEventListener('click', function() {
+      var id = this.id.slice(1);
+      
+      if (id !== selectedGraph.id) {
+        renderGraph(graphs[id]);
+      }
+    });
   }
   
   function renderGraph(graphData) {
@@ -68,5 +80,6 @@
     };
     var options = {};
     new vis.Network(container, data, options);
+    selectedGraph = graphData;
   }
 })();
