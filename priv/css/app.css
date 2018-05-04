@@ -2,7 +2,7 @@
   display:none;
 }
 
-.edges line {
-  stroke: #999;
-  stroke-opacity: 0.6;
+#graph_container {
+  height: 500px;
+  border: 1px solid lightgray;
 }
