@@ -10,7 +10,7 @@
   {env,[]},
   {modules, []},
 
-  {maintainers, []},
-  {licenses, ["Apache 2.0"]},
-  {links, []}
+  {maintainers, ["Stuart Welham"]},
+  {licenses, ["MIT"]},
+  {links, [{"Github", "https://github.com/swelham/digraph_viewer"}]}
  ]}.
