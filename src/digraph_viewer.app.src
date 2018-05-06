@@ -1,6 +1,6 @@
 {application, digraph_viewer,
- [{description, "An OTP application"},
-  {vsn, "0.1.0"},
+ [{description, "Digraph viewer provides a visual representation of a digraph model through a web based interface"},
+  {vsn, "0.1.1"},
   {registered, []},
   {mod, { digraph_viewer_app, []}},
   {applications,
