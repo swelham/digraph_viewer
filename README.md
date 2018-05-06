@@ -19,7 +19,7 @@ Once installed make sure to add `digraph_viewer` to your list of applications (o
 ```
 
 ```elixir
-# elixir
+# elixir]
 # ---------
 # mix.exs
 # ---------
@@ -47,4 +47,4 @@ g = :digraph.new()
 :digraph_viewer.register(g)
 ```
 
-You can now view the digraph by visiting [http://localhost:8080/] (http://localhost:8080/).
+You can now view the digraph by visiting http://localhost:8080/.
