@@ -4,7 +4,7 @@ Digraph viewer provides a visual representation of an erlang digraph through a w
 
 ## Installation
 
-Head over to hex to find the latest version to install.
+Head over to [hex](https://hex.pm/packages/digraph_viewer) to find the latest version to install.
 
 Once installed make sure to add `digraph_viewer` to your list of applications (or start it manually).
 
