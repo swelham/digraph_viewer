@@ -7,22 +7,24 @@
     <link href="/css/app.css" rel="stylesheet" />
   </head>
   <body>
-    <div class="fl w-20 pa2">
-      <h1 class="f4 bold center mw6">Digraphs</h1>
-      <ul id="graph_list" class="list pl0 ml0 mt0 center mw6 ba b--light-silver bb-0">
-        <li data-template="graph-list-item" class="pa3 bb b--light-silver">
-          <span data-name></span>
-          <div class="cf mt2">
-            <div data-protection class="fl w-30 light-silver"></div>
-            <div data-cyclicity class="fl w-30 light-silver"></div>
-            <div data-memory class="fl w-40 light-silver"></div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="fl w-80 pa2">
-      <h1 class="f4 bold center mw6">&nbsp;</h1>
-      <div id="graph_container"></div>
+    <div class="flex absolute top-0 bottom-0 left-0 right-0">
+      <div class="w-20 bg-light">
+        <h1 class="f4 bold center mw6 bg-dark mv0 pv4 tc light-gray">Digraph Viewer</h1>
+        <ul id="graph_list" class="list pl0 ml0 mt0 center mw6 mt2">
+          <li data-template="graph-list-item" class="pa3 mt1 clr-light hover-bg-dark pointer">
+            <span data-name class="light-silver"></span>
+            <div class="cf mt2">
+              <div data-protection class="fl w-30 gray"></div>
+              <div data-cyclicity class="fl w-30 gray"></div>
+              <div data-memory class="fl w-40 gray"></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="w-80 pa2 flex flex-column">
+        <h3 id="graph_header" class="mv2">test_graph</h3>
+        <div id="graph_container" class="h-100 ba b--gray"></div>
+      </div>
     </div>
   </body>
   <script src="/js/vis.min.js"></script>

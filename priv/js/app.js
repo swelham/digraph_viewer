@@ -80,6 +80,11 @@
     };
     var options = {};
     new vis.Network(container, data, options);
-    selectedGraph = graphData;
+    setSelectedGraph(graphData);
+  }
+  
+  function setSelectedGraph(graph) {
+    selectedGraph = graph;
+    document.getElementById('graph_header').innerText = graph.name || graph.id;
   }
 })();

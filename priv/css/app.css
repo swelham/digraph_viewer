@@ -2,7 +2,14 @@
   display:none;
 }
 
-#graph_container {
-  height: 500px;
-  border: 1px solid lightgray;
+.bg-light {
+  background-color: #37474f;
+}
+
+.bg-dark {
+  background-color: #263238;
+}
+
+.hover-bg-dark:hover {
+  background-color: #263238;
 }
