@@ -9,6 +9,7 @@ Head over to hex to find the latest version to install.
 Once installed make sure to add `digraph_viewer` to your list of applications (or start it manually).
 
 ```erlang
+%% erlang
 %% ---------
 %% your_app.app.src
 %% ---------
@@ -18,7 +19,10 @@ Once installed make sure to add `digraph_viewer` to your list of applications (o
 ```
 
 ```elixir
+# elixir
+# ---------
 # mix.exs
+# ---------
 
 def application do
   [applications: [:digraph_viewer]]
@@ -30,11 +34,15 @@ end
 Before the digraph can be viewed it must be registered with `digraph_viewer`.
 
 ```erlang
+%% erlang
+
 G = digraph:new(),
 digraph_viewer:register(G).
 ```
 
 ```elixir
+# elixir
+
 g = :digraph.new()
 :digraph_viewer.register(g)
 ```
