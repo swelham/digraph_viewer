@@ -2,6 +2,8 @@
 
 Digraph viewer provides a visual representation of an erlang digraph through a web based interface.
 
+![digraph_viewer screen grab](https://s3.amazonaws.com/digraphviewer/digraph_viewer_screen_grab.png)
+
 ## Installation
 
 Head over to [hex](https://hex.pm/packages/digraph_viewer) to find the latest version to install.
